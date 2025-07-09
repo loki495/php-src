@@ -164,3 +164,23 @@ prof-use:
 	fi;
 
 .PHONY: all clean install distclean test prof-gen prof-clean prof-use
+
+
+##################################################
+##          Custom Targets by loki495           ##
+##################################################
+
+fast_cli:
+	make -j$(NPROC) cli
+
+run:
+	$(SAPI_CLI_PATH) -n -ddisplay_errors=1 $(FILE)
+
+toggle-macro:
+	sed -i 's|^\(#define MY_DEBUG\)|//\1|;t; s|^//\(#define MY_DEBUG\)|\1|' main/main.c
+
+##################################################
+##       End of Custom Targets by loki495       ##
+##################################################
+
+
