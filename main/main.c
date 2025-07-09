@@ -20,6 +20,12 @@
 
 #define ZEND_INCLUDE_FULL_WINDOWS_HEADERS
 
+#ifdef MY_DEBUG
+#define DBG_PRINTF(...) printf("[DBG] " __VA_ARGS__)
+#else
+#define DBG_PRINTF(...) ((void)0)
+#endif
+
 #include "php.h"
 #include <stdio.h>
 #include <fcntl.h>
